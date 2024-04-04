@@ -1,6 +1,6 @@
 <!-- author: Pontus Karlsson -->
 
-![Symfony image](.img/symfony.png)
+![Symfony image](/public/img/symfony.png)
 
 My web application
 ==================
