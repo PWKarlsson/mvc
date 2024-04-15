@@ -43,6 +43,11 @@ h2 {
     margin-bottom: 1.4rem;
 }
 
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
 p {
     margin-bottom: 1.4rem;
     font-size: 1rem;
@@ -137,4 +142,24 @@ footer {
 .api {
     height: 100vh;
     padding: 1em;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
 }
