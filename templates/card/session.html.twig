@@ -1,5 +1,11 @@
 {% block body %}
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
+<form method="post" action="">
+    <p>
+        <input type="submit" name="clear" value="Clear session"
+        onClick="this.form.action='{{ path('clear_session') }}';"
+        >
+    </p>
+</form>
+<p>The session contains:</p>
+{{dump(session)}}
 {% endblock %}
