@@ -15,7 +15,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class CardController extends AbstractController
 {
     #[Route("/card", name: "card")]
-    public function home(): Response
+    public function home(
+        Request $request,
+        SessionInterface $session
+    ): Response
     {   
         $card = new CardGraphic();
         // $card = new Card();
@@ -35,16 +38,31 @@ class CardController extends AbstractController
             'suite'=> $card->getSuite(),
             'deck' => $deck->getDeck()
         ];
+        $session->set("deck", $deck);
         return $this->render('card.html.twig', $data);
     }
 
 
-    #[Route("/session", name: "session_content")]
+    #[Route("/session", name: "show_session")]
     public function session(
         SessionInterface $session
     ): Response
     {
-        return $this->render('card/session.html.twig');
+        $data = [
+            "session" => $session->all()
+        ];
+
+        return $this->render('card/session.html.twig', $data);
+    }
+
+    #[Route("/session/delete", name: "clear_session")]
+    public function sessionClear(
+        SessionInterface $session
+    ): Response
+    {
+        $session->clear();
+
+        return $this->redirectToRoute('show_session');
     }
 
 }
